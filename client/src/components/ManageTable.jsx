@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./searchTable.css";
 
 const ManageTable = ({ Data }) => {
   const [data, setData] = useState(Data); // All data
@@ -46,8 +47,8 @@ const ManageTable = ({ Data }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
-      <div>
+    <div className='search-table-container'>
+      <div className='search-container'>
         <form>
           <input
             type='text'
@@ -57,23 +58,26 @@ const ManageTable = ({ Data }) => {
           />
         </form>
       </div>
-      <div style={{ overflowX: 'auto' }}>
-        <div>
+      <div className='table-container'>
+        <div className='sort-buttons'>
           <button onClick={() => handleSort('date')}>Sort by Date</button>
           <button onClick={() => handleSort('time')}>Sort by Time</button>
         </div>
         {currentItems.length > 0 ? (
           <table className='table'>
             <thead>
-              <tr>
-                <th>sno</th>
-                <th>customer_name</th>
-                <th>age</th>
-                <th>phone</th>
-                <th>location</th>
-                <th>created_date</th>
-                <th>created_time</th>
-              </tr>
+            <tr>
+                <th rowspan="2">Sno</th>
+                <th rowspan="2">Name</th>
+                <th rowspan="2">Location</th>
+                <th rowspan="2">Number</th>
+                <th rowspan="2">Age</th>
+                <th colspan="2">Created At</th>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
             </thead>
             <tbody>
               {currentItems.map((item, index) => (
@@ -93,7 +97,7 @@ const ManageTable = ({ Data }) => {
           <p>No matching records found.</p>
         )}
         {/* Pagination buttons */}
-        <div>
+        <div className='pagination'>
           <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
             Previous
           </button>
