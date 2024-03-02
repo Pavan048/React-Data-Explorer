@@ -69,9 +69,9 @@ const ManageTable = ({ Data }) => {
             <tr>
                 <th rowspan="2">Sno</th>
                 <th rowspan="2">Name</th>
-                <th rowspan="2">Location</th>
-                <th rowspan="2">Number</th>
                 <th rowspan="2">Age</th>
+                <th rowspan="2">Number</th>
+                <th rowspan="2">location</th>
                 <th colspan="2">Created At</th>
             </tr>
             <tr>
